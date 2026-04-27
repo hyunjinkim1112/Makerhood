@@ -14,8 +14,6 @@ import Combine
 @MainActor
 class HomeViewModel: ObservableObject {
     @Published var nearbyMakerspaces: [Makerspace] = []
-    @Published var popularMakerspaces: [Makerspace] = []
-    @Published var upcomingBookings: [Booking] = []
     @Published var isLoading = false
     @Published var errorMessage: String?
     
@@ -30,8 +28,6 @@ class HomeViewModel: ObservableObject {
     
     func loadSampleData() {
         nearbyMakerspaces = Makerspace.samples
-        popularMakerspaces = Makerspace.samples.filter { $0.isPopular }
-        upcomingBookings = Booking.samples
     }
     
     // MARK: - Fetch Nearby Makerspaces
@@ -72,70 +68,10 @@ class HomeViewModel: ObservableObject {
         isLoading = false
     }
     
-    // MARK: - Fetch Popular Makerspaces
-    
-    func fetchPopularMakerspaces() async {
-        isLoading = true
-        errorMessage = nil
-        
-        do {
-            let snapshot = try await db.collection("makerspaces")
-                .whereField("isPopular", isEqualTo: true)
-                .order(by: "rating", descending: true)
-                .limit(to: 10)
-                .getDocuments()
-            
-            popularMakerspaces = snapshot.documents.compactMap { doc -> Makerspace? in
-                Makerspace.fromDictionary(doc.data(), id: doc.documentID)
-            }
-            
-        } catch {
-            errorMessage = "Failed to fetch popular makerspaces"
-            print("Error fetching popular makerspaces: \(error.localizedDescription)")
-            // Fallback to sample data
-            popularMakerspaces = Makerspace.samples.filter { $0.isPopular }
-        }
-        
-        isLoading = false
-    }
-    
-    // MARK: - Fetch Upcoming Bookings
-    
-    func fetchUpcomingBookings(userId: String) async {
-        isLoading = true
-        errorMessage = nil
-        
-        do {
-            let currentTime = Date().timeIntervalSince1970
-            
-            let snapshot = try await db.collection("bookings")
-                .whereField("userId", isEqualTo: userId)
-                .whereField("startTime", isGreaterThan: currentTime)
-                .whereField("status", isEqualTo: BookingStatus.confirmed.rawValue)
-                .order(by: "startTime")
-                .limit(to: 5)
-                .getDocuments()
-            
-            upcomingBookings = snapshot.documents.compactMap { doc -> Booking? in
-                Booking.fromDictionary(doc.data(), id: doc.documentID)
-            }
-            
-        } catch {
-            errorMessage = "Failed to fetch bookings"
-            print("Error fetching bookings: \(error.localizedDescription)")
-            // Fallback to sample data
-            upcomingBookings = Booking.samples
-        }
-        
-        isLoading = false
-    }
-    
     // MARK: - Refresh All Data
     
     func refreshAllData(userId: String, userLocation: CLLocationCoordinate2D? = nil) async {
         await fetchNearbyMakerspaces(userLocation: userLocation)
-        await fetchPopularMakerspaces()
-        await fetchUpcomingBookings(userId: userId)
     }
     
     // MARK: - Search Makerspaces

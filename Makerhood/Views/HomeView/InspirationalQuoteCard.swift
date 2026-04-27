@@ -16,7 +16,7 @@ struct InspirationalQuoteCard: View {
             Image(imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(height: 200)
+                .frame(width: 360, height: 340)
                 .clipped()
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
@@ -35,6 +35,6 @@ struct InspirationalQuoteCard: View {
 // MARK: - Preview
 
 #Preview {
-    InspirationalQuoteCard(imageName: "inspirational-quotes/quote1")
+    InspirationalQuoteCard(imageName: "quote1")
         .padding()
 }

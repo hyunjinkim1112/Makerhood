@@ -6,14 +6,106 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C81DC3412F9B15CA003C2F5F /* BostonLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C81DC3402F9B15C9003C2F5F /* BostonLocation.gpx */; };
+		C81DC3432F9B15CC003C2F5F /* CambridgeLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C81DC3422F9B15CC003C2F5F /* CambridgeLocation.gpx */; };
+		C81F3C212F96C3D300A050C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C81F3C182F96C3D300A050C9 /* Assets.xcassets */; };
+		C81F3C252F96C3D300A050C9 /* MakerhoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C1C2F96C3D300A050C9 /* MakerhoodApp.swift */; };
+		C81F3C2C2F96C5BB00A050C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C81F3C2B2F96C5BB00A050C9 /* GoogleService-Info.plist */; };
+		C81F3C3B2F96C6AE00A050C9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C81F3C3A2F96C6AE00A050C9 /* FirebaseAuth */; };
+		C81F3C3D2F96C6AE00A050C9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C81F3C3C2F96C6AE00A050C9 /* FirebaseFirestore */; };
+		C81F3C3F2F96C6AE00A050C9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C81F3C3E2F96C6AE00A050C9 /* FirebaseStorage */; };
+		C81F3C512F96D51F00A050C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C4A2F96D51F00A050C9 /* ContentView.swift */; };
+		C81F3C522F96D51F00A050C9 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C4B2F96D51F00A050C9 /* LaunchScreenView.swift */; };
+		C81F3C532F96D51F00A050C9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C4C2F96D51F00A050C9 /* LoginView.swift */; };
+		C81F3C542F96D51F00A050C9 /* OrganizationSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C4D2F96D51F00A050C9 /* OrganizationSignUpView.swift */; };
+		C81F3C552F96D51F00A050C9 /* RoleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C4E2F96D51F00A050C9 /* RoleSelectionView.swift */; };
+		C81F3C562F96D51F00A050C9 /* UserSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C4F2F96D51F00A050C9 /* UserSignUpView.swift */; };
+		C81F3C682F96EBD700A050C9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C672F96EBD700A050C9 /* MapView.swift */; };
+		C81F3C782F96F4A500A050C9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C772F96F4A500A050C9 /* ProfileView.swift */; };
+		C81F3C922F97CAC000A050C9 /* MapMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C912F97CAC000A050C9 /* MapMarkerView.swift */; };
+		C81F3C942F97CAC000A050C9 /* MapListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C932F97CAC000A050C9 /* MapListCard.swift */; };
+		C81F3C982F97CAC000A050C9 /* MapBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C972F97CAC000A050C9 /* MapBottomSheet.swift */; };
+		C81F3C9A2F97CAC000A050C9 /* MakerspaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C992F97CAC000A050C9 /* MakerspaceListView.swift */; };
+		C81F3C9C2F97CAC000A050C9 /* MakerspaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C9B2F97CAC000A050C9 /* MakerspaceDetailView.swift */; };
+		C81F3C9E2F97CAC000A050C9 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3C9D2F97CAC000A050C9 /* FlowLayout.swift */; };
+		C81F3CAC2F97CB3900A050C9 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CAB2F97CB3900A050C9 /* ViewExtensions.swift */; };
+		C81F3CBB2F97CD0200A050C9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CB12F97CD0200A050C9 /* HomeView.swift */; };
+		C81F3CBD2F97CD0200A050C9 /* HomeViewMakerspaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CB32F97CD0200A050C9 /* HomeViewMakerspaceCard.swift */; };
+		C81F3CBE2F97CD0200A050C9 /* HomeViewNearbySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CB42F97CD0200A050C9 /* HomeViewNearbySection.swift */; };
+		C81F3CC12F97CD0200A050C9 /* HomeViewWelcomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CB72F97CD0200A050C9 /* HomeViewWelcomeHeader.swift */; };
+		C81F3CC22F97CD0200A050C9 /* ServicesLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CB82F97CD0200A050C9 /* ServicesLocationManager.swift */; };
+		C81F3CCA2F97CD0600A050C9 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CC32F97CD0600A050C9 /* AuthViewModel.swift */; };
+		C81F3CCB2F97CD0600A050C9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CC42F97CD0600A050C9 /* HomeViewModel.swift */; };
+		C81F3CCC2F97CD0600A050C9 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CC52F97CD0600A050C9 /* MapViewModel.swift */; };
+		C81F3CCE2F97CD0600A050C9 /* ModelsMakerspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CC72F97CD0600A050C9 /* ModelsMakerspace.swift */; };
+		C81F3CCF2F97CD0600A050C9 /* ServicesAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CC82F97CD0600A050C9 /* ServicesAuthManager.swift */; };
+		C81F3CD62F97CD0900A050C9 /* ModelsUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CD22F97CD0900A050C9 /* ModelsUser.swift */; };
+		C81F3CE52F97DEF900A050C9 /* ModelsWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81F3CE42F97DEF900A050C9 /* ModelsWorkshop.swift */; };
+		C85067D52F9A96F8008D94B3 /* MakerspaceProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85067D42F9A96F8008D94B3 /* MakerspaceProfileView.swift */; };
+		C85067D72F9A9703008D94B3 /* MakerspaceProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85067D62F9A9703008D94B3 /* MakerspaceProfileViewModel.swift */; };
+		C85067D92F9A9717008D94B3 /* EditMakerspaceProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85067D82F9A9717008D94B3 /* EditMakerspaceProfileView.swift */; };
+		C863AC9E2F9B1B5000E877B4 /* ModelsDesignChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C863AC9D2F9B1B5000E877B4 /* ModelsDesignChallenge.swift */; };
+		C863ACA02F9B1B6D00E877B4 /* ServicesDesignChallengeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C863AC9F2F9B1B6D00E877B4 /* ServicesDesignChallengeService.swift */; };
+		C863ACA22F9B1B7E00E877B4 /* DesignChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C863ACA12F9B1B7E00E877B4 /* DesignChallengeViewModel.swift */; };
+		C863ACA42F9B1BB200E877B4 /* ViewsDesignChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C863ACA32F9B1BB200E877B4 /* ViewsDesignChallengeView.swift */; };
+		C8C0206C2F9BF03A00D73EFA /* DesignChallengePrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C0206B2F9BF03A00D73EFA /* DesignChallengePrompts.swift */; };
+		C8C0206E2F9C283300D73EFA /* InspirationalQuoteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C0206D2F9C283300D73EFA /* InspirationalQuoteHelper.swift */; };
+		C8C020702F9C284300D73EFA /* InspirationalQuoteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C0206F2F9C284300D73EFA /* InspirationalQuoteCard.swift */; };
+		C8C020722F9FAD3800D73EFA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C8C020712F9FAD3800D73EFA /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		C81F3BDC2F96B5F300A050C9 /* Makerspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makerspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81DC3402F9B15C9003C2F5F /* BostonLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BostonLocation.gpx; sourceTree = "<group>"; };
+		C81DC3422F9B15CC003C2F5F /* CambridgeLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CambridgeLocation.gpx; sourceTree = "<group>"; };
+		C81F3C182F96C3D300A050C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C81F3C1C2F96C3D300A050C9 /* MakerhoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakerhoodApp.swift; sourceTree = "<group>"; };
+		C81F3C2A2F96C4B000A050C9 /* Makerhood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makerhood.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81F3C2B2F96C5BB00A050C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C81F3C4A2F96D51F00A050C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C81F3C4B2F96D51F00A050C9 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		C81F3C4C2F96D51F00A050C9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C81F3C4D2F96D51F00A050C9 /* OrganizationSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationSignUpView.swift; sourceTree = "<group>"; };
+		C81F3C4E2F96D51F00A050C9 /* RoleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionView.swift; sourceTree = "<group>"; };
+		C81F3C4F2F96D51F00A050C9 /* UserSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUpView.swift; sourceTree = "<group>"; };
+		C81F3C672F96EBD700A050C9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		C81F3C772F96F4A500A050C9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C81F3C912F97CAC000A050C9 /* MapMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerView.swift; sourceTree = "<group>"; };
+		C81F3C932F97CAC000A050C9 /* MapListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapListCard.swift; sourceTree = "<group>"; };
+		C81F3C972F97CAC000A050C9 /* MapBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBottomSheet.swift; sourceTree = "<group>"; };
+		C81F3C992F97CAC000A050C9 /* MakerspaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakerspaceListView.swift; sourceTree = "<group>"; };
+		C81F3C9B2F97CAC000A050C9 /* MakerspaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakerspaceDetailView.swift; sourceTree = "<group>"; };
+		C81F3C9D2F97CAC000A050C9 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		C81F3CAB2F97CB3900A050C9 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		C81F3CB12F97CD0200A050C9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C81F3CB32F97CD0200A050C9 /* HomeViewMakerspaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMakerspaceCard.swift; sourceTree = "<group>"; };
+		C81F3CB42F97CD0200A050C9 /* HomeViewNearbySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewNearbySection.swift; sourceTree = "<group>"; };
+		C81F3CB72F97CD0200A050C9 /* HomeViewWelcomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewWelcomeHeader.swift; sourceTree = "<group>"; };
+		C81F3CB82F97CD0200A050C9 /* ServicesLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesLocationManager.swift; sourceTree = "<group>"; };
+		C81F3CC32F97CD0600A050C9 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		C81F3CC42F97CD0600A050C9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C81F3CC52F97CD0600A050C9 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		C81F3CC72F97CD0600A050C9 /* ModelsMakerspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsMakerspace.swift; sourceTree = "<group>"; };
+		C81F3CC82F97CD0600A050C9 /* ServicesAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAuthManager.swift; sourceTree = "<group>"; };
+		C81F3CD22F97CD0900A050C9 /* ModelsUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsUser.swift; sourceTree = "<group>"; };
+		C81F3CE42F97DEF900A050C9 /* ModelsWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsWorkshop.swift; sourceTree = "<group>"; };
+		C85067D42F9A96F8008D94B3 /* MakerspaceProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakerspaceProfileView.swift; sourceTree = "<group>"; };
+		C85067D62F9A9703008D94B3 /* MakerspaceProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakerspaceProfileViewModel.swift; sourceTree = "<group>"; };
+		C85067D82F9A9717008D94B3 /* EditMakerspaceProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMakerspaceProfileView.swift; sourceTree = "<group>"; };
+		C863AC9D2F9B1B5000E877B4 /* ModelsDesignChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDesignChallenge.swift; sourceTree = "<group>"; };
+		C863AC9F2F9B1B6D00E877B4 /* ServicesDesignChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesDesignChallengeService.swift; sourceTree = "<group>"; };
+		C863ACA12F9B1B7E00E877B4 /* DesignChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignChallengeViewModel.swift; sourceTree = "<group>"; };
+		C863ACA32F9B1BB200E877B4 /* ViewsDesignChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsDesignChallengeView.swift; sourceTree = "<group>"; };
+		C8C0206B2F9BF03A00D73EFA /* DesignChallengePrompts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignChallengePrompts.swift; sourceTree = "<group>"; };
+		C8C0206D2F9C283300D73EFA /* InspirationalQuoteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspirationalQuoteHelper.swift; sourceTree = "<group>"; };
+		C8C0206F2F9C284300D73EFA /* InspirationalQuoteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspirationalQuoteCard.swift; sourceTree = "<group>"; };
+		C8C020712F9FAD3800D73EFA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		C81F3BDE2F96B5F300A050C9 /* Makerspace */ = {
+		C8C020732F9FAE4900D73EFA /* ViewScreenshots */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Makerspace;
+			path = ViewScreenshots;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +115,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81F3C3B2F96C6AE00A050C9 /* FirebaseAuth in Frameworks */,
+				C81F3C3D2F96C6AE00A050C9 /* FirebaseFirestore in Frameworks */,
+				C81F3C3F2F96C6AE00A050C9 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,25 +127,140 @@
 		C81F3BD32F96B5F300A050C9 = {
 			isa = PBXGroup;
 			children = (
-				C81F3BDE2F96B5F300A050C9 /* Makerspace */,
-				C81F3BDD2F96B5F300A050C9 /* Products */,
+				C81F3C202F96C3D300A050C9 /* Makerhood */,
+				C81F3C2A2F96C4B000A050C9 /* Makerhood.app */,
 			);
 			sourceTree = "<group>";
 		};
-		C81F3BDD2F96B5F300A050C9 /* Products */ = {
+		C81F3C202F96C3D300A050C9 /* Makerhood */ = {
 			isa = PBXGroup;
 			children = (
-				C81F3BDC2F96B5F300A050C9 /* Makerspace.app */,
+				C8C020732F9FAE4900D73EFA /* ViewScreenshots */,
+				C81F3C2B2F96C5BB00A050C9 /* GoogleService-Info.plist */,
+				C81F3C182F96C3D300A050C9 /* Assets.xcassets */,
+				C81F3C1C2F96C3D300A050C9 /* MakerhoodApp.swift */,
+				C81F3C502F96D51F00A050C9 /* Views */,
+				C81F3CC92F97CD0600A050C9 /* ViewModels */,
+				C81F3CD32F97CD0900A050C9 /* Models */,
+				C81F3D022F97E40F00A050C9 /* Services */,
+				C8C020712F9FAD3800D73EFA /* README.md */,
 			);
-			name = Products;
+			path = Makerhood;
+			sourceTree = "<group>";
+		};
+		C81F3C502F96D51F00A050C9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C81F3C4A2F96D51F00A050C9 /* ContentView.swift */,
+				C81F3C4B2F96D51F00A050C9 /* LaunchScreenView.swift */,
+				C81F3C7C2F97BB3500A050C9 /* LoginViews */,
+				C81F3CB92F97CD0200A050C9 /* HomeView */,
+				C863ACA72F9B1C7000E877B4 /* DesignChallengeView */,
+				C81F3CAF2F97CC6F00A050C9 /* MapView */,
+				C85067DC2F9A9770008D94B3 /* ProfileView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C81F3C7C2F97BB3500A050C9 /* LoginViews */ = {
+			isa = PBXGroup;
+			children = (
+				C81F3C4C2F96D51F00A050C9 /* LoginView.swift */,
+				C81F3C4E2F96D51F00A050C9 /* RoleSelectionView.swift */,
+				C81F3C4D2F96D51F00A050C9 /* OrganizationSignUpView.swift */,
+				C81F3C4F2F96D51F00A050C9 /* UserSignUpView.swift */,
+			);
+			path = LoginViews;
+			sourceTree = "<group>";
+		};
+		C81F3CAF2F97CC6F00A050C9 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				C81F3C672F96EBD700A050C9 /* MapView.swift */,
+				C81F3C912F97CAC000A050C9 /* MapMarkerView.swift */,
+				C81F3C932F97CAC000A050C9 /* MapListCard.swift */,
+				C81F3C972F97CAC000A050C9 /* MapBottomSheet.swift */,
+				C81F3C992F97CAC000A050C9 /* MakerspaceListView.swift */,
+				C81F3C9B2F97CAC000A050C9 /* MakerspaceDetailView.swift */,
+				C81F3CAB2F97CB3900A050C9 /* ViewExtensions.swift */,
+				C81F3C9D2F97CAC000A050C9 /* FlowLayout.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		C81F3CB92F97CD0200A050C9 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				C81F3CB12F97CD0200A050C9 /* HomeView.swift */,
+				C81F3CB72F97CD0200A050C9 /* HomeViewWelcomeHeader.swift */,
+				C81F3CB42F97CD0200A050C9 /* HomeViewNearbySection.swift */,
+				C81F3CB32F97CD0200A050C9 /* HomeViewMakerspaceCard.swift */,
+				C8C0206D2F9C283300D73EFA /* InspirationalQuoteHelper.swift */,
+				C8C0206F2F9C284300D73EFA /* InspirationalQuoteCard.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		C81F3CC92F97CD0600A050C9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C863ACA12F9B1B7E00E877B4 /* DesignChallengeViewModel.swift */,
+				C81F3CC32F97CD0600A050C9 /* AuthViewModel.swift */,
+				C81F3CC42F97CD0600A050C9 /* HomeViewModel.swift */,
+				C81F3CC52F97CD0600A050C9 /* MapViewModel.swift */,
+				C85067D62F9A9703008D94B3 /* MakerspaceProfileViewModel.swift */,
+				C81DC3402F9B15C9003C2F5F /* BostonLocation.gpx */,
+				C81DC3422F9B15CC003C2F5F /* CambridgeLocation.gpx */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C81F3CD32F97CD0900A050C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C81F3CE42F97DEF900A050C9 /* ModelsWorkshop.swift */,
+				C81F3CC72F97CD0600A050C9 /* ModelsMakerspace.swift */,
+				C81F3CD22F97CD0900A050C9 /* ModelsUser.swift */,
+				C863AC9D2F9B1B5000E877B4 /* ModelsDesignChallenge.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C81F3D022F97E40F00A050C9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C863AC9F2F9B1B6D00E877B4 /* ServicesDesignChallengeService.swift */,
+				C81F3CB82F97CD0200A050C9 /* ServicesLocationManager.swift */,
+				C81F3CC82F97CD0600A050C9 /* ServicesAuthManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C85067DC2F9A9770008D94B3 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				C81F3C772F96F4A500A050C9 /* ProfileView.swift */,
+				C85067D82F9A9717008D94B3 /* EditMakerspaceProfileView.swift */,
+				C85067D42F9A96F8008D94B3 /* MakerspaceProfileView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		C863ACA72F9B1C7000E877B4 /* DesignChallengeView */ = {
+			isa = PBXGroup;
+			children = (
+				C863ACA32F9B1BB200E877B4 /* ViewsDesignChallengeView.swift */,
+				C8C0206B2F9BF03A00D73EFA /* DesignChallengePrompts.swift */,
+			);
+			path = DesignChallengeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C81F3BDB2F96B5F300A050C9 /* Makerspace */ = {
+		C81F3BDB2F96B5F300A050C9 /* Makerhood */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C81F3BE72F96B5F400A050C9 /* Build configuration list for PBXNativeTarget "Makerspace" */;
+			buildConfigurationList = C81F3BE72F96B5F400A050C9 /* Build configuration list for PBXNativeTarget "Makerhood" */;
 			buildPhases = (
 				C81F3BD82F96B5F300A050C9 /* Sources */,
 				C81F3BD92F96B5F300A050C9 /* Frameworks */,
@@ -61,13 +271,16 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				C81F3BDE2F96B5F300A050C9 /* Makerspace */,
+				C8C020732F9FAE4900D73EFA /* ViewScreenshots */,
 			);
-			name = Makerspace;
+			name = Makerhood;
 			packageProductDependencies = (
+				C81F3C3A2F96C6AE00A050C9 /* FirebaseAuth */,
+				C81F3C3C2F96C6AE00A050C9 /* FirebaseFirestore */,
+				C81F3C3E2F96C6AE00A050C9 /* FirebaseStorage */,
 			);
 			productName = Makerspace;
-			productReference = C81F3BDC2F96B5F300A050C9 /* Makerspace.app */;
+			productReference = C81F3C2A2F96C4B000A050C9 /* Makerhood.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +298,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C81F3BD72F96B5F300A050C9 /* Build configuration list for PBXProject "Makerspace" */;
+			buildConfigurationList = C81F3BD72F96B5F300A050C9 /* Build configuration list for PBXProject "Makerhood" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -94,12 +307,15 @@
 			);
 			mainGroup = C81F3BD32F96B5F300A050C9;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C81F3C392F96C6AE00A050C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = C81F3BDD2F96B5F300A050C9 /* Products */;
+			productRefGroup = C81F3BD32F96B5F300A050C9;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C81F3BDB2F96B5F300A050C9 /* Makerspace */,
+				C81F3BDB2F96B5F300A050C9 /* Makerhood */,
 			);
 		};
 /* End PBXProject section */
@@ -109,6 +325,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81F3C2C2F96C5BB00A050C9 /* GoogleService-Info.plist in Resources */,
+				C81DC3412F9B15CA003C2F5F /* BostonLocation.gpx in Resources */,
+				C8C020722F9FAD3800D73EFA /* README.md in Resources */,
+				C81F3C212F96C3D300A050C9 /* Assets.xcassets in Resources */,
+				C81DC3432F9B15CC003C2F5F /* CambridgeLocation.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +340,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81F3C9E2F97CAC000A050C9 /* FlowLayout.swift in Sources */,
+				C81F3CE52F97DEF900A050C9 /* ModelsWorkshop.swift in Sources */,
+				C8C0206E2F9C283300D73EFA /* InspirationalQuoteHelper.swift in Sources */,
+				C863ACA02F9B1B6D00E877B4 /* ServicesDesignChallengeService.swift in Sources */,
+				C81F3CCA2F97CD0600A050C9 /* AuthViewModel.swift in Sources */,
+				C81F3CCB2F97CD0600A050C9 /* HomeViewModel.swift in Sources */,
+				C81F3CCC2F97CD0600A050C9 /* MapViewModel.swift in Sources */,
+				C85067D92F9A9717008D94B3 /* EditMakerspaceProfileView.swift in Sources */,
+				C8C020702F9C284300D73EFA /* InspirationalQuoteCard.swift in Sources */,
+				C81F3CCE2F97CD0600A050C9 /* ModelsMakerspace.swift in Sources */,
+				C81F3CCF2F97CD0600A050C9 /* ServicesAuthManager.swift in Sources */,
+				C81F3C252F96C3D300A050C9 /* MakerhoodApp.swift in Sources */,
+				C81F3C512F96D51F00A050C9 /* ContentView.swift in Sources */,
+				C81F3CAC2F97CB3900A050C9 /* ViewExtensions.swift in Sources */,
+				C81F3CBB2F97CD0200A050C9 /* HomeView.swift in Sources */,
+				C8C0206C2F9BF03A00D73EFA /* DesignChallengePrompts.swift in Sources */,
+				C81F3CBD2F97CD0200A050C9 /* HomeViewMakerspaceCard.swift in Sources */,
+				C81F3CBE2F97CD0200A050C9 /* HomeViewNearbySection.swift in Sources */,
+				C81F3CC12F97CD0200A050C9 /* HomeViewWelcomeHeader.swift in Sources */,
+				C81F3CC22F97CD0200A050C9 /* ServicesLocationManager.swift in Sources */,
+				C81F3CD62F97CD0900A050C9 /* ModelsUser.swift in Sources */,
+				C85067D72F9A9703008D94B3 /* MakerspaceProfileViewModel.swift in Sources */,
+				C863ACA22F9B1B7E00E877B4 /* DesignChallengeViewModel.swift in Sources */,
+				C81F3C922F97CAC000A050C9 /* MapMarkerView.swift in Sources */,
+				C81F3C9A2F97CAC000A050C9 /* MakerspaceListView.swift in Sources */,
+				C81F3C522F96D51F00A050C9 /* LaunchScreenView.swift in Sources */,
+				C81F3C532F96D51F00A050C9 /* LoginView.swift in Sources */,
+				C81F3C682F96EBD700A050C9 /* MapView.swift in Sources */,
+				C863ACA42F9B1BB200E877B4 /* ViewsDesignChallengeView.swift in Sources */,
+				C863AC9E2F9B1B5000E877B4 /* ModelsDesignChallenge.swift in Sources */,
+				C81F3C9C2F97CAC000A050C9 /* MakerspaceDetailView.swift in Sources */,
+				C81F3C542F96D51F00A050C9 /* OrganizationSignUpView.swift in Sources */,
+				C81F3C552F96D51F00A050C9 /* RoleSelectionView.swift in Sources */,
+				C81F3C942F97CAC000A050C9 /* MapListCard.swift in Sources */,
+				C81F3C782F96F4A500A050C9 /* ProfileView.swift in Sources */,
+				C85067D52F9A96F8008D94B3 /* MakerspaceProfileView.swift in Sources */,
+				C81F3C982F97CAC000A050C9 /* MapBottomSheet.swift in Sources */,
+				C81F3C562F96D51F00A050C9 /* UserSignUpView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,17 +515,19 @@
 				DEVELOPMENT_TEAM = 7TJAC69Z2K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show nearby makerspaces.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kim.Makerspace;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kim.NewMakerhood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -288,17 +549,19 @@
 				DEVELOPMENT_TEAM = 7TJAC69Z2K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show nearby makerspaces.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kim.Makerspace;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kim.NewMakerhood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -313,7 +576,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C81F3BD72F96B5F300A050C9 /* Build configuration list for PBXProject "Makerspace" */ = {
+		C81F3BD72F96B5F300A050C9 /* Build configuration list for PBXProject "Makerhood" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C81F3BE52F96B5F400A050C9 /* Debug */,
@@ -322,7 +585,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C81F3BE72F96B5F400A050C9 /* Build configuration list for PBXNativeTarget "Makerspace" */ = {
+		C81F3BE72F96B5F400A050C9 /* Build configuration list for PBXNativeTarget "Makerhood" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C81F3BE82F96B5F400A050C9 /* Debug */,
@@ -332,6 +595,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C81F3C392F96C6AE00A050C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.12.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C81F3C3A2F96C6AE00A050C9 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81F3C392F96C6AE00A050C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C81F3C3C2F96C6AE00A050C9 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81F3C392F96C6AE00A050C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		C81F3C3E2F96C6AE00A050C9 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C81F3C392F96C6AE00A050C9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C81F3BD42F96B5F300A050C9 /* Project object */;
 }

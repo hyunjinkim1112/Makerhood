@@ -9,7 +9,6 @@ import SwiftUI
 
 struct NearbySection: View {
     let makerspaces: [Makerspace]
-    let onSeeAllTapped: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -20,12 +19,6 @@ struct NearbySection: View {
                     .font(.headline)
                 
                 Spacer()
-                
-                Button("See All") {
-                    onSeeAllTapped()
-                }
-                .font(.subheadline)
-                .foregroundStyle(.makerYellow)
             }
             .padding(.horizontal)
             
@@ -43,7 +36,6 @@ struct NearbySection: View {
 
 #Preview {
     NearbySection(
-        makerspaces: Makerspace.samples,
-        onSeeAllTapped: {}
+        makerspaces: Makerspace.samples
     )
 }

@@ -52,23 +52,17 @@ struct MainTabView: View {
                 }
                 .tag(1)
             
-            CommunityView()
+            DesignChallengeView()
                 .tabItem {
-                    Label("Community", systemImage: "person.3.fill")
+                    Label("Challenge", systemImage: "lightbulb.fill")
                 }
                 .tag(2)
-            
-            BookingsView()
-                .tabItem {
-                    Label("Bookings", systemImage: "calendar")
-                }
-                .tag(3)
             
             ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person.fill")
                 }
-                .tag(4)
+                .tag(3)
         }
         .tint(.makerYellow)
     }

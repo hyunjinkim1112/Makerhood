@@ -20,18 +20,7 @@ struct MakerspaceProfileView: View {
                     if let makerspace = viewModel.makerspace {
                         // Header Section
                         makerspaceHeaderCard(makerspace: makerspace)
-                        
-                        // Information Section
-                        informationSection(makerspace: makerspace)
-                        
-                        // Amenities Section
-                        amenitiesSection(amenities: makerspace.amenities)
-                        
-                        // Pricing Section
-                        pricingSection(price: makerspace.pricePerHour)
-                        
-                        // Stats Section
-                        statsSection(makerspace: makerspace)
+                       
                     } else if viewModel.isLoading {
                         ProgressView("Loading makerspace profile...")
                             .padding()
@@ -105,17 +94,7 @@ struct MakerspaceProfileView: View {
                 .font(.title2)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
-            
-            // Rating
-            HStack(spacing: 4) {
-                Image(systemName: "star.fill")
-                    .foregroundStyle(.yellow)
-                Text(String(format: "%.1f", makerspace.rating))
-                    .fontWeight(.semibold)
-                Text("(\(makerspace.reviewCount) reviews)")
-                    .foregroundStyle(.secondary)
-            }
-            .font(.subheadline)
+        
         }
         .padding()
         .frame(maxWidth: .infinity)
@@ -143,166 +122,9 @@ struct MakerspaceProfileView: View {
             .shadow(radius: 5)
     }
     
-    // MARK: - Information Section
     
-    private func informationSection(makerspace: Makerspace) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Information")
-                .font(.headline)
-            
-            // Description
-            VStack(alignment: .leading, spacing: 8) {
-                Label("Description", systemImage: "text.alignleft")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                Text(makerspace.description)
-                    .font(.body)
-            }
-            
-            // Address
-            VStack(alignment: .leading, spacing: 8) {
-                Label("Address", systemImage: "location.fill")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                Text(makerspace.address)
-                    .font(.body)
-            }
-            
-            // Contact (from user profile)
-            if let user = authViewModel.currentUser {
-                VStack(alignment: .leading, spacing: 8) {
-                    Label("Contact", systemImage: "phone.fill")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                    Text(user.phoneNumber)
-                        .font(.body)
-                }
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    Label("Email", systemImage: "envelope.fill")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                    Text(user.email)
-                        .font(.body)
-                }
-                
-                if let website = user.website {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Label("Website", systemImage: "globe")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                        Link(website, destination: URL(string: website) ?? URL(string: "https://example.com")!)
-                            .font(.body)
-                    }
-                }
-            }
-        }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(.systemBackground))
-        .cornerRadius(16)
-        .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 2)
-        .padding(.horizontal)
-    }
+  
     
-    // MARK: - Amenities Section
-    
-    private func amenitiesSection(amenities: [String]) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Amenities & Equipment")
-                .font(.headline)
-            
-            if amenities.isEmpty {
-                Text("No amenities added yet. Tap Edit to add your equipment.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .italic()
-            } else {
-                FlowLayout(spacing: 8) {
-                    ForEach(amenities, id: \.self) { amenity in
-                        Text(amenity)
-                            .font(.subheadline)
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 6)
-                            .background(Color.makerYellow.opacity(0.2))
-                            .foregroundStyle(.primary)
-                            .cornerRadius(8)
-                    }
-                }
-            }
-        }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(.systemBackground))
-        .cornerRadius(16)
-        .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 2)
-        .padding(.horizontal)
-    }
-    
-    // MARK: - Pricing Section
-    
-    private func pricingSection(price: Double) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Pricing")
-                .font(.headline)
-            
-            HStack {
-                Text("$\(Int(price))/hour")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.makerYellow)
-                
-                Spacer()
-                
-                if price == 0 {
-                    Text("Set your pricing")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-            }
-        }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(.systemBackground))
-        .cornerRadius(16)
-        .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 2)
-        .padding(.horizontal)
-    }
-    
-    // MARK: - Stats Section
-    
-    private func statsSection(makerspace: Makerspace) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Statistics")
-                .font(.headline)
-            
-            HStack(spacing: 20) {
-                StatCard(
-                    title: "Reviews",
-                    value: "\(makerspace.reviewCount)",
-                    icon: "star.fill"
-                )
-                
-                StatCard(
-                    title: "Rating",
-                    value: String(format: "%.1f", makerspace.rating),
-                    icon: "chart.bar.fill"
-                )
-                
-                StatCard(
-                    title: "Popular",
-                    value: makerspace.isPopular ? "Yes" : "No",
-                    icon: "flame.fill"
-                )
-            }
-        }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(.systemBackground))
-        .cornerRadius(16)
-        .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 2)
-        .padding(.horizontal)
-    }
     
     // MARK: - Empty State
     
@@ -373,59 +195,6 @@ struct StatCard: View {
         .padding()
         .background(Color(.systemGray6))
         .cornerRadius(12)
-    }
-}
-
-// MARK: - Flow Layout for Amenities
-
-struct FlowLayout: Layout {
-    var spacing: CGFloat = 8
-    
-    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        let result = FlowResult(
-            in: proposal.replacingUnspecifiedDimensions().width,
-            subviews: subviews,
-            spacing: spacing
-        )
-        return result.size
-    }
-    
-    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
-        let result = FlowResult(
-            in: bounds.width,
-            subviews: subviews,
-            spacing: spacing
-        )
-        for (index, subview) in subviews.enumerated() {
-            subview.place(at: CGPoint(x: bounds.minX + result.positions[index].x, y: bounds.minY + result.positions[index].y), proposal: .unspecified)
-        }
-    }
-    
-    struct FlowResult {
-        var size: CGSize = .zero
-        var positions: [CGPoint] = []
-        
-        init(in maxWidth: CGFloat, subviews: Subviews, spacing: CGFloat) {
-            var currentX: CGFloat = 0
-            var currentY: CGFloat = 0
-            var lineHeight: CGFloat = 0
-            
-            for subview in subviews {
-                let size = subview.sizeThatFits(.unspecified)
-                
-                if currentX + size.width > maxWidth && currentX > 0 {
-                    currentX = 0
-                    currentY += lineHeight + spacing
-                    lineHeight = 0
-                }
-                
-                positions.append(CGPoint(x: currentX, y: currentY))
-                currentX += size.width + spacing
-                lineHeight = max(lineHeight, size.height)
-            }
-            
-            self.size = CGSize(width: maxWidth, height: currentY + lineHeight)
-        }
     }
 }
 

@@ -18,6 +18,7 @@ struct MapView: View {
     @State private var selectedMakerspace: Makerspace?
     @State private var bottomSheetHeight: CGFloat = 200
     @GestureState private var dragOffset: CGFloat = 0
+    @State private var shouldFollowUserLocation = false
     
     private let minSheetHeight: CGFloat = 200
     
@@ -26,7 +27,11 @@ struct MapView: View {
             ZStack(alignment: .bottom) {
                 // Map View
                 Map(position: $position, selection: $selectedMakerspace) {
-                    UserAnnotation()
+                    // Only show user annotation if we have actual location permission
+                    if locationManager.authorizationStatus == .authorizedWhenInUse ||
+                       locationManager.authorizationStatus == .authorizedAlways {
+                        UserAnnotation()
+                    }
                     
                     ForEach(viewModel.makerspaces) { makerspace in
                         Annotation(makerspace.name, coordinate: makerspace.coordinate) {
@@ -46,15 +51,33 @@ struct MapView: View {
                 }
                 .mapStyle(.standard(elevation: .realistic))
                 .mapControls {
-                    MapUserLocationButton()
                     MapCompass()
                     MapScaleView()
+                }
+                .safeAreaInset(edge: .trailing) {
+                    VStack(spacing: 12) {
+                        // Custom user location button
+                        Button(action: {
+                            shouldFollowUserLocation = true
+                            updateMapPosition()
+                        }) {
+                            Image(systemName: shouldFollowUserLocation ? "location.fill" : "location")
+                                .font(.system(size: 20))
+                                .foregroundStyle(shouldFollowUserLocation ? .makerYellow : .primary)
+                                .frame(width: 44, height: 44)
+                                .background(Color(.systemBackground))
+                                .clipShape(Circle())
+                                .shadow(radius: 2)
+                        }
+                        .padding(.trailing, 16)
+                        .padding(.top, 16)
+                    }
                 }
                 .ignoresSafeArea()
                 
                 // Bottom Sheet
                 bottomSheet(geometry: geometry)
-                    .frame(height: bottomSheetHeight + dragOffset)
+                    .frame(height: max(minSheetHeight, bottomSheetHeight + dragOffset))
                     .frame(maxWidth: .infinity)
                     .background(Color(.systemBackground))
                     .cornerRadius(20, corners: [.topLeft, .topRight])
@@ -82,14 +105,35 @@ struct MapView: View {
                     )
             }
             .task {
-                locationManager.requestPermission()
+                // Immediately set to Boston before any async operations
+                position = .region(MKCoordinateRegion(
+                    center: LocationManager.bostonCoordinate,
+                    span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                ))
+                
                 await viewModel.fetchMakerspaces()
+                
+                // Debug: Print makerspace locations
+                print("📍 Loaded \(viewModel.makerspaces.count) makerspaces")
+                for space in viewModel.makerspaces.prefix(3) {
+                    print("📍 \(space.name): \(space.latitude), \(space.longitude)")
+                }
+                
+                locationManager.requestPermission()
             }
             .onChange(of: locationManager.location?.latitude) { _, _ in
-                updateMapPosition()
+                if shouldFollowUserLocation {
+                    updateMapPosition()
+                }
             }
             .onChange(of: locationManager.location?.longitude) { _, _ in
-                updateMapPosition()
+                if shouldFollowUserLocation {
+                    updateMapPosition()
+                }
+            }
+            .onMapCameraChange { context in
+                // If user manually pans the map, stop following their location
+                shouldFollowUserLocation = false
             }
         }
     }
@@ -97,7 +141,16 @@ struct MapView: View {
     // MARK: - Helpers
     
     private func updateMapPosition() {
-        if let location = locationManager.location {
+        guard shouldFollowUserLocation else {
+            print("🗺️ Not following user location, staying on current position")
+            return
+        }
+        
+        let location = locationManager.location ?? LocationManager.bostonCoordinate
+        let locationSource = locationManager.location != nil ? "user location" : "default (Boston)"
+        print("🗺️ Updating map position to \(locationSource): \(location.latitude), \(location.longitude)")
+        
+        withAnimation {
             position = .region(MKCoordinateRegion(
                 center: location,
                 span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
@@ -174,31 +227,8 @@ struct MapView: View {
                         
                         Spacer()
                         
-                        if makerspace.isPopular {
-                            HStack(spacing: 4) {
-                                Image(systemName: "flame.fill")
-                                    .font(.caption)
-                                Text("Popular")
-                                    .font(.caption)
-                                    .fontWeight(.semibold)
-                            }
-                            .foregroundStyle(.white)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 6)
-                            .background(Color.makerYellow)
-                            .cornerRadius(12)
-                        }
                     }
                     
-                    HStack {
-                        Image(systemName: "star.fill")
-                            .foregroundStyle(.makerYellow)
-                        Text(String(format: "%.1f", makerspace.rating))
-                            .fontWeight(.semibold)
-                        Text("(\(makerspace.reviewCount) reviews)")
-                            .foregroundStyle(.secondary)
-                    }
-                    .font(.subheadline)
                     
                     HStack {
                         Image(systemName: "location.fill")
@@ -209,83 +239,10 @@ struct MapView: View {
                     
                     Divider()
                     
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Price")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                            Text("$\(Int(makerspace.pricePerHour))/hr")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.makerYellow)
-                        }
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            // Navigate to booking
-                        }) {
-                            Text("Book Now")
-                                .fontWeight(.semibold)
-                                .foregroundStyle(.white)
-                                .padding(.horizontal, 32)
-                                .padding(.vertical, 12)
-                                .background(Color.makerYellow)
-                                .cornerRadius(12)
-                        }
-                    }
-                    
-                    if !makerspace.amenities.isEmpty {
-                        Divider()
-                        
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Amenities")
-                                .font(.headline)
-                            
-                            FlowLayout(spacing: 8) {
-                                ForEach(makerspace.amenities, id: \.self) { amenity in
-                                    Text(amenity)
-                                        .font(.caption)
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 6)
-                                        .background(Color(.systemGray6))
-                                        .cornerRadius(8)
-                                }
-                            }
-                        }
-                    }
                     
                     // Recent Reviews Section
                     Divider()
-                    
-                    VStack(alignment: .leading, spacing: 12) {
-                        HStack {
-                            Text("Recent Reviews")
-                                .font(.headline)
-                            
-                            Spacer()
-                            
-                            Button("See All") {
-                                // Show all reviews
-                            }
-                            .font(.subheadline)
-                            .foregroundStyle(.makerYellow)
-                        }
-                        
-                        // Display reviews from posts
-                        let reviews = Post.samples.filter { $0.makerspaceId == makerspace.id && $0.isReview }
-                        
-                        if reviews.isEmpty {
-                            Text("No reviews yet. Be the first to review!")
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                                .padding(.vertical, 8)
-                        } else {
-                            ForEach(reviews.prefix(3)) { review in
-                                MakerspaceReviewCard(review: review)
-                            }
-                        }
-                    }
+                
                 }
                 .padding(.horizontal)
             }
@@ -335,6 +292,12 @@ struct MapView: View {
 
 // MARK: - Preview
 
-#Preview {
+#Preview("Map View") {
     MapView()
 }
+
+// Note: Xcode Previews may initially show Cupertino due to the preview environment's
+// default location simulation. The actual app in the simulator will correctly show Boston.
+// To test different locations in previews, use the simulator instead.
+
+

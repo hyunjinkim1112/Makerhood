@@ -72,6 +72,30 @@ class AuthenticationManager {
             
             print("✅ Firestore document created successfully")
             
+            // If this is an organization, also create a makerspace document
+            if let role = userDict["role"] as? String, role == "organization" {
+                print("📝 Creating makerspace document for organization...")
+                
+                let makerspaceData: [String: Any] = [
+                    "name": userDict["organizationName"] ?? "Unnamed Makerspace",
+                    "description": "Welcome to our makerspace! We're setting up our profile.",
+                    "address": userDict["address"] ?? "",
+                    "latitude": 0.0,
+                    "longitude": 0.0, 
+                    "imageURL": nil as String? ?? "Please provide web address (URL) of your image here.",
+                    "organizationId": authResult.user.uid,
+                    "amenities": [] as [String],
+                    "pricePerHour": 0.0,
+                    "rating": 0.0,
+                    "reviewCount": 0,
+                    "isPopular": false,
+                    "createdAt": Date().timeIntervalSince1970
+                ]
+                
+                try await db.collection("makerspaces").document(authResult.user.uid).setData(makerspaceData)
+                print("✅ Makerspace document created successfully")
+            }
+            
             guard let user = User.fromDictionary(userDict, id: authResult.user.uid) else {
                 print("❌ Failed to create user from dictionary: \(userDict)")
                 throw AuthError.unknown("Failed to create user profile")

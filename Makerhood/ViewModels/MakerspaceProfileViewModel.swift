@@ -63,12 +63,8 @@ class MakerspaceProfileViewModel: ObservableObject {
                 "latitude": makerspace.latitude,
                 "longitude": makerspace.longitude,
                 "imageURL": makerspace.imageURL as Any,
+                "websiteURL": makerspace.websiteURL as Any,
                 "organizationId": makerspace.organizationId,
-                "amenities": makerspace.amenities,
-                "pricePerHour": makerspace.pricePerHour,
-                "rating": makerspace.rating,
-                "reviewCount": makerspace.reviewCount,
-                "isPopular": makerspace.isPopular,
                 "createdAt": makerspace.createdAt?.timeIntervalSince1970 ?? Date().timeIntervalSince1970
             ]
             

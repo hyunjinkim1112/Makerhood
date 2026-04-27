@@ -11,11 +11,12 @@ struct InspirationalQuoteHelper {
     /// Array of inspirational quote image names from Assets
     /// Update this array with your actual image names in the inspirational-quotes folder
     static let quoteImages: [String] = [
-        "inspirational-quotes/quote1",
-        "inspirational-quotes/quote2",
-        "inspirational-quotes/quote3",
-        "inspirational-quotes/quote4",
-        "inspirational-quotes/quote5",
+        "quote1",
+        "quote2",
+        "quote3",
+        "quote4",
+        "quote5",
+        "quote6"
         // Add more quote image names here as needed
     ]
     

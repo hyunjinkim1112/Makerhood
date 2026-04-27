@@ -16,12 +16,8 @@ struct Makerspace: Identifiable, Codable, Hashable {
     let latitude: Double
     let longitude: Double
     let imageURL: String?
+    let websiteURL: String?
     let organizationId: String
-    let amenities: [String]
-    let pricePerHour: Double
-    let rating: Double
-    let reviewCount: Int
-    let isPopular: Bool
     let createdAt: Date?
     
     var coordinate: CLLocationCoordinate2D {
@@ -37,13 +33,9 @@ struct Makerspace: Identifiable, Codable, Hashable {
             address: "77 Massachusetts Ave, Cambridge, MA",
             latitude: 42.3601,
             longitude: -71.0942,
-            imageURL: nil,
+            imageURL: "https://content.civicplus.com/api/assets/ma-watertown/38f284d6-3d56-41bd-912a-fbcc0a3ac54f?cache=1800&width=1540&mode=min",
+            websiteURL: "https://makemit.mit.edu",
             organizationId: "org1",
-            amenities: ["3D Printer", "Laser Cutter", "CNC Mill", "Electronics Lab"],
-            pricePerHour: 30.0,
-            rating: 4.8,
-            reviewCount: 245,
-            isPopular: true,
             createdAt: Date()
         )
     }
@@ -57,13 +49,9 @@ struct Makerspace: Identifiable, Codable, Hashable {
                 address: "77 Massachusetts Ave, Cambridge, MA",
                 latitude: 42.3601,
                 longitude: -71.0942,
-                imageURL: nil,
+                imageURL: "https://content.civicplus.com/api/assets/ma-watertown/38f284d6-3d56-41bd-912a-fbcc0a3ac54f?cache=1800&width=1540&mode=min",
+                websiteURL: "https://www.watertownlib.org/707/Hatch-Makerspace",
                 organizationId: "org1",
-                amenities: ["3D Printer", "Laser Cutter", "CNC Mill", "Electronics Lab"],
-                pricePerHour: 30.0,
-                rating: 4.8,
-                reviewCount: 245,
-                isPopular: true,
                 createdAt: Date()
             ),
             Makerspace(
@@ -74,12 +62,8 @@ struct Makerspace: Identifiable, Codable, Hashable {
                 latitude: 42.3355,
                 longitude: -71.1685,
                 imageURL: nil,
+                websiteURL: "https://www.bc.edu/fablab",
                 organizationId: "org2",
-                amenities: ["Woodworking", "3D Printer", "Soldering Station"],
-                pricePerHour: 22.0,
-                rating: 4.5,
-                reviewCount: 128,
-                isPopular: true,
                 createdAt: Date()
             ),
             Makerspace(
@@ -90,12 +74,8 @@ struct Makerspace: Identifiable, Codable, Hashable {
                 latitude: 42.3467,
                 longitude: -71.0707,
                 imageURL: nil,
+                websiteURL: "https://www.southendstudio.com",
                 organizationId: "org3",
-                amenities: ["Laser Cutter", "Vinyl Cutter", "Screen Printing"],
-                pricePerHour: 25.0,
-                rating: 4.2,
-                reviewCount: 87,
-                isPopular: false,
                 createdAt: Date()
             ),
             Makerspace(
@@ -106,12 +86,8 @@ struct Makerspace: Identifiable, Codable, Hashable {
                 latitude: 42.3520,
                 longitude: -71.0447,
                 imageURL: nil,
+                websiteURL: "https://www.techhubboston.com",
                 organizationId: "org4",
-                amenities: ["3D Printer", "Laser Cutter", "Electronics"],
-                pricePerHour: 28.0,
-                rating: 4.7,
-                reviewCount: 156,
-                isPopular: true,
                 createdAt: Date()
             ),
             Makerspace(
@@ -122,12 +98,8 @@ struct Makerspace: Identifiable, Codable, Hashable {
                 latitude: 42.3656,
                 longitude: -71.1040,
                 imageURL: nil,
+                websiteURL: "https://www.cambridgemakers.org",
                 organizationId: "org5",
-                amenities: ["Woodworking", "Metal Shop", "CNC Router"],
-                pricePerHour: 20.0,
-                rating: 4.6,
-                reviewCount: 92,
-                isPopular: false,
                 createdAt: Date()
             )
         ]
@@ -141,12 +113,7 @@ extension Makerspace {
               let address = dict["address"] as? String,
               let latitude = dict["latitude"] as? Double,
               let longitude = dict["longitude"] as? Double,
-              let organizationId = dict["organizationId"] as? String,
-              let amenities = dict["amenities"] as? [String],
-              let pricePerHour = dict["pricePerHour"] as? Double,
-              let rating = dict["rating"] as? Double,
-              let reviewCount = dict["reviewCount"] as? Int,
-              let isPopular = dict["isPopular"] as? Bool else {
+              let organizationId = dict["organizationId"] as? String else {
             return nil
         }
         
@@ -165,12 +132,8 @@ extension Makerspace {
             latitude: latitude,
             longitude: longitude,
             imageURL: dict["imageURL"] as? String,
+            websiteURL: dict["websiteURL"] as? String,
             organizationId: organizationId,
-            amenities: amenities,
-            pricePerHour: pricePerHour,
-            rating: rating,
-            reviewCount: reviewCount,
-            isPopular: isPopular,
             createdAt: createdAt
         )
     }

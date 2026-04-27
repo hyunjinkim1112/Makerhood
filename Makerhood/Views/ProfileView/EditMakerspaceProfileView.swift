@@ -16,10 +16,9 @@ struct EditMakerspaceProfileView: View {
     @State private var name: String
     @State private var description: String
     @State private var address: String
-    @State private var pricePerHour: String
-    @State private var amenities: [String]
-    @State private var newAmenity: String = ""
-    @State private var showingAddAmenity = false
+    @State private var latitude: String
+    @State private var longitude: String
+    @State private var imageURL: String
     
     init(makerspace: Makerspace, onSave: @escaping (Makerspace) -> Void) {
         self.makerspace = makerspace
@@ -28,8 +27,9 @@ struct EditMakerspaceProfileView: View {
         _name = State(initialValue: makerspace.name)
         _description = State(initialValue: makerspace.description)
         _address = State(initialValue: makerspace.address)
-        _pricePerHour = State(initialValue: String(format: "%.0f", makerspace.pricePerHour))
-        _amenities = State(initialValue: makerspace.amenities)
+        _latitude = State(initialValue: String(makerspace.latitude))
+        _longitude = State(initialValue: String(makerspace.longitude))
+        _imageURL = State(initialValue: makerspace.imageURL ?? "")
     }
     
     var body: some View {
@@ -44,46 +44,23 @@ struct EditMakerspaceProfileView: View {
                     
                     TextField("Address", text: $address, axis: .vertical)
                         .lineLimit(2...4)
-                }
-                
-                // Pricing
-                Section("Pricing") {
-                    HStack {
-                        Text("$")
-                        TextField("Price per hour", text: $pricePerHour)
+                    
+                    // Location
+                    Section("Location Coordinates") {
+                        TextField("Latitude", text: $latitude)
                             .keyboardType(.decimalPad)
-                        Text("/hour")
-                            .foregroundStyle(.secondary)
-                    }
-                }
-                
-                // Amenities
-                Section {
-                    ForEach(amenities, id: \.self) { amenity in
-                        HStack {
-                            Text(amenity)
-                            Spacer()
-                            Button(role: .destructive) {
-                                if let index = amenities.firstIndex(of: amenity) {
-                                    amenities.remove(at: index)
-                                }
-                            } label: {
-                                Image(systemName: "minus.circle.fill")
-                                    .foregroundStyle(.red)
-                            }
-                        }
+                        
+                        TextField("Longitude", text: $longitude)
+                            .keyboardType(.decimalPad)
                     }
                     
-                    Button {
-                        showingAddAmenity = true
-                    } label: {
-                        Label("Add Amenity", systemImage: "plus.circle.fill")
-                            .foregroundStyle(.makerYellow)
+                    // Media
+                    Section("Media") {
+                        TextField("Image URL", text: $imageURL)
+                            .keyboardType(.URL)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
                     }
-                } header: {
-                    Text("Amenities & Equipment")
-                } footer: {
-                    Text("Add equipment and facilities available at your makerspace")
                 }
             }
             .navigationTitle("Edit Profile")
@@ -103,20 +80,6 @@ struct EditMakerspaceProfileView: View {
                     .disabled(!isFormValid)
                 }
             }
-            .alert("Add Amenity", isPresented: $showingAddAmenity) {
-                TextField("Equipment name", text: $newAmenity)
-                Button("Cancel", role: .cancel) {
-                    newAmenity = ""
-                }
-                Button("Add") {
-                    if !newAmenity.isEmpty {
-                        amenities.append(newAmenity)
-                        newAmenity = ""
-                    }
-                }
-            } message: {
-                Text("Enter the name of equipment or facility")
-            }
         }
     }
     
@@ -125,26 +88,32 @@ struct EditMakerspaceProfileView: View {
     private var isFormValid: Bool {
         !name.isEmpty &&
         !description.isEmpty &&
-        !address.isEmpty
+        !address.isEmpty &&
+        isValidCoordinate(latitude) &&
+        isValidCoordinate(longitude)
+    }
+    
+    private func isValidCoordinate(_ value: String) -> Bool {
+        // Check if it's a valid double
+        return Double(value) != nil
     }
     
     private func saveChanges() {
-        let price = Double(pricePerHour) ?? 0.0
+        guard let lat = Double(latitude),
+              let lon = Double(longitude) else {
+            return
+        }
         
         let updatedMakerspace = Makerspace(
             id: makerspace.id,
             name: name,
             description: description,
             address: address,
-            latitude: makerspace.latitude, // Keep existing coordinates
-            longitude: makerspace.longitude, // Keep existing coordinates
-            imageURL: makerspace.imageURL,
+            latitude: lat,
+            longitude: lon,
+            imageURL: imageURL.isEmpty ? nil : imageURL,
+            websiteURL: makerspace.websiteURL,
             organizationId: makerspace.organizationId,
-            amenities: amenities,
-            pricePerHour: price,
-            rating: makerspace.rating,
-            reviewCount: makerspace.reviewCount,
-            isPopular: makerspace.isPopular,
             createdAt: makerspace.createdAt
         )
         

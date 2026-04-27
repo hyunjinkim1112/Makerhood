@@ -29,28 +29,9 @@ struct MapListCard: View {
             
             // Info
             VStack(alignment: .leading, spacing: 4) {
-                HStack {
-                    Text(makerspace.name)
-                        .font(.headline)
-                        .lineLimit(1)
-                    
-                    if makerspace.isPopular {
-                        Image(systemName: "flame.fill")
-                            .font(.caption)
-                            .foregroundStyle(.makerYellow)
-                    }
-                }
-                
-                HStack {
-                    Image(systemName: "star.fill")
-                        .font(.caption)
-                        .foregroundStyle(.makerYellow)
-                    Text(String(format: "%.1f", makerspace.rating))
-                        .font(.caption)
-                    Text("(\(makerspace.reviewCount))")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
+                Text(makerspace.name)
+                    .font(.headline)
+                    .lineLimit(1)
                 
                 Text(makerspace.address)
                     .font(.caption)
@@ -59,16 +40,7 @@ struct MapListCard: View {
             }
             
             Spacer()
-            
-            // Price
-            VStack(alignment: .trailing, spacing: 2) {
-                Text("$\(Int(makerspace.pricePerHour))")
-                    .font(.headline)
-                    .foregroundStyle(.makerYellow)
-                Text("per hour")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-            }
+        
         }
         .padding(12)
         .background(Color(.systemGray6))
