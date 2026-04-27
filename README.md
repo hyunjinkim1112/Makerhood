@@ -30,14 +30,8 @@ Built with SwiftUI and Firebase, Makerhood provides a seamless experience for ex
 
 Click the thumbnail below to watch a 60-second demonstration of Makerhood in action:
 
-[![Makerhood Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Makerhood Demo Video](https://img.youtube.com/vi/J5CLl3_yWhk/maxresdefault.jpg)]([https://www.youtube.com/watch?v=J5CLl3_yWhk])
 
-> **Instructions:** Replace `YOUR_VIDEO_ID` with your actual YouTube video ID. You can find this in your YouTube URL: `https://www.youtube.com/watch?v=YOUR_VIDEO_ID`
->
-> **Alternative format** if you prefer a custom thumbnail:
-> ```markdown
-> [![Watch the demo](path/to/your/custom-thumbnail.png)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
-> ```
 
 ---
 
