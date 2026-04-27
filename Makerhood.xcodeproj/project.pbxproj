@@ -127,6 +127,7 @@
 		C81F3BD32F96B5F300A050C9 = {
 			isa = PBXGroup;
 			children = (
+				C8C020712F9FAD3800D73EFA /* README.md */,
 				C81F3C202F96C3D300A050C9 /* Makerhood */,
 				C81F3C2A2F96C4B000A050C9 /* Makerhood.app */,
 			);
@@ -143,7 +144,6 @@
 				C81F3CC92F97CD0600A050C9 /* ViewModels */,
 				C81F3CD32F97CD0900A050C9 /* Models */,
 				C81F3D022F97E40F00A050C9 /* Services */,
-				C8C020712F9FAD3800D73EFA /* README.md */,
 			);
 			path = Makerhood;
 			sourceTree = "<group>";

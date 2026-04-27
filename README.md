@@ -56,5 +56,15 @@ Click the thumbnail below to watch a 60-second demonstration of Makerhood in act
 - 🌐 **Online Presence** - Include website links and contact information
 - 📊 **Community Engagement** - Connect with potential members and showcase your space
 
+---
+
+## 📧 Contact
+
+For questions, feedback, or collaboration opportunities, feel free to reach out:
+
+- **LinkedIn**: [Hyunjin Kim](https://www.linkedin.com/in/hyunjinkim1112/)
+- **GitHub Issues**: Use the repository's [issue tracker](https://github.com/yourusername/makerhood/issues) for bug reports and feature requests
+
+---
 
 **Made with ❤️ for the maker community**
