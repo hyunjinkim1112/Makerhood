@@ -22,7 +22,7 @@ Built with SwiftUI and Firebase, Makerhood provides a seamless experience for ex
 
 | Home Screen | Map View | Design Challenge View| Profile |
 |------------|----------|-------------------|---------|
-| ![Home](./ViewScreenshots/home.png) | ![Map](./ViewScreenshots/map.png) | ![Details](./ViewScreenshots/design-challenge.png) | ![Profile](./ViewScreenshots/profile.png) |
+| ![Home](Makerhood/ViewScreenshots/home.png) | ![Map](Makerhood/ViewScreenshots/map.png) | ![Details](Makerhood/ViewScreenshots/design-challenge.png) | ![Profile](Makerhood/ViewScreenshots/profile.png) |
 
 ---
 
