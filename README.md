@@ -30,8 +30,9 @@ Built with SwiftUI and Firebase, Makerhood provides a seamless experience for ex
 
 Click the thumbnail below to watch a 60-second demonstration of Makerhood in action:
 
-[![Makerhood Demo Video](https://img.youtube.com/vi/J5CLl3_yWhk/maxresdefault.jpg)]([https://www.youtube.com/watch?v=J5CLl3_yWhk])
+[![Makerhood Demo Video](https://img.youtube.com/vi/J5CLl3_yWhk/maxresdefault.jpg)](https://www.youtube.com/watch?v=J5CLl3_yWhk)
 
+> **Watch the full demo:** [https://www.youtube.com/watch?v=J5CLl3_yWhk](https://www.youtube.com/watch?v=J5CLl3_yWhk)
 
 ---
 
